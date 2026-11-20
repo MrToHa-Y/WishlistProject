@@ -1,0 +1,108 @@
+:root{
+    --color-bg-base: rgb(0, 0, 0);
+    --color-bg-card: rgb(31, 31, 34);
+    --color-bg-soft: rgba(255, 255, 255, 0.08);
+    --color-bg-soft-2: rgba(255, 255, 255, 0.10);
+    --color-text-primary: rgb(255, 255, 255);
+    --color-text-secondary: rgba(255, 255, 255, 0.70);
+    --color-text-muted: rgba(255, 255, 255, 0.55);
+    --color-border-soft: rgba(255, 255, 255, 0.10);
+    --color-accent-blue: rgb(12, 69, 255);
+    --color-accent-red: rgb(249, 68, 68);
+    --color-accent-green: rgb(201, 247, 93);
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+    --transition-fast: 0.2s ease;
+    --font-main: var(--register-font-family, "SF Pro Rounded Medium", "Segoe UI", sans-serif);
+
+
+
+    --home-page-bg: rgb(0, 0, 0);
+    --home-page-text: rgba(255, 255, 255, 0.92);
+    --home-header-height: 82px;
+    --home-header-shadow-bg: linear-gradient(rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    --home-header-pill-bg: rgba(37, 37, 39, 0.84);
+    --home-header-pill-border: rgba(255, 255, 255, 0.08);
+    --home-header-tooltip-bg: rgb(239, 239, 239);
+    --home-header-tooltip-text: rgb(66, 66, 69);
+    --home-header-signin-bg: rgb(12, 69, 255);
+    --home-header-signin-text: rgb(255, 255, 255);
+    --home-header-menu-bg: rgb(48, 49, 53);
+    --home-header-menu-item-text: rgba(255, 255, 255, 0.88);
+    --home-header-menu-item-hover: rgba(255, 255, 255, 0.08);
+    --home-header-menu-accent: rgb(201, 247, 93);
+    --home-header-signout-color: rgb(243, 70, 59);
+
+
+
+    --fulfilled-overlay-bg: rgba(20, 20, 23, 0.72);
+
+
+
+    --profile-accent-blue: rgb(12, 69, 255);
+    --profile-muted-text: rgba(255, 255, 255, 0.56);
+
+
+
+    --register-page-bg: rgb(0, 0, 0);
+    --register-card-bg: rgb(31, 31, 31);
+    --register-zone-bg: rgba(255, 255, 255, 0.03);
+    --register-field-bg: rgba(255, 255, 255, 0.1);
+    --register-label-color: rgba(255, 255, 255, 0.4);
+    --register-text-color: rgba(255, 255, 255, 0.72);
+    --register-title-color: rgb(255, 255, 255);
+    --register-divider-color: rgba(255, 255, 255, 0.16);
+    --register-submit-bg: rgb(255, 255, 255);
+    --register-submit-text: rgb(7, 7, 7);
+    --register-error-color: rgb(249, 68, 68);
+    --register-success-color: rgb(44, 177, 100);
+    --register-warning-color: rgb(245, 158, 11);
+    --register-info-color: rgb(41, 161, 255);
+    --register-card-width: 500px;
+    --register-card-height: 720px;
+    --register-card-padding-y: 24px;
+    --register-card-padding-x: 48px;
+    --register-card-radius: 38px;
+    --register-field-radius: 14px;
+    --register-pill-radius: 999px;
+    --register-title-size: 34px;
+    --register-label-size: 22px;
+    --register-label-active-size: 16px;
+    --register-policy-size: 12px;
+    --register-font-family: "SF Pro Rounded Medium", "Segoe UI", sans-serif;
+
+
+
+    --settings-card-bg: rgb(31, 31, 34);
+    --settings-card-border: rgba(255, 255, 255, 0.08);
+    --settings-muted-text: rgba(255, 255, 255, 0.62);
+    --settings-strong-text: rgb(255, 255, 255);
+    --settings-danger: rgb(243, 70, 59);
+    --settings-primary: rgb(12, 69, 255);
+}
+
+@import "base/normalize";
+
+@import "layout/header";
+@import "layout/sidebar";
+@import "layout/background_photo_animation";
+@import "layout/catalog_card";
+@import "layout/open_modal_card";
+@import "layout/create_wish_modal";
+@import "layout/update_profile_modal";
+@import "layout/change_email_modal";
+@import "layout/change_password_modal";
+@import "layout/confirm_modal";
+
+@import "pages_style/register";
+@import "pages_style/login";
+@import "pages_style/home";
+@import "pages_style/profile";
+@import "pages_style/fulfilled";
+@import "pages_style/reservations";
+@import "pages_style/settings";
+@import "pages_style/search";
+@import "pages_style/error";

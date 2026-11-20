@@ -1,0 +1,472 @@
+.settings-modal{
+    position: fixed;
+    inset: 0;
+    z-index: 180;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s ease;
+}
+
+.settings-modal.is-open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.settings-modal[hidden]{
+    display: none;
+}
+
+.settings-modal__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.76);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.24s ease;
+}
+
+.settings-modal.is-open .settings-modal__backdrop{
+    opacity: 1;
+}
+
+.settings-modal__dialog{
+    position: relative;
+    z-index: 1;
+    width: min(760px, calc(100vw - 24px));
+    max-height: calc(100vh - 24px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgb(31, 31, 34);
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+.settings-modal.is-open .settings-modal__dialog{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.settings-modal__title{
+    margin: 0;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.settings-modal__close{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 16px;
+    top: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.settings-modal__close span{
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: 23px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.settings-modal__close span:first-child{
+    transform: rotate(45deg);
+}
+
+.settings-modal__close span:last-child{
+    transform: rotate(-45deg);
+}
+
+.settings-modal__summary{
+    margin: 14px auto 0;
+    width: min(100%, 680px);
+    border-radius: 14px;
+    background: rgb(249, 68, 68);
+    color: rgb(255, 255, 255);
+    padding: 12px 14px;
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.settings-modal__summary--hidden{
+    display: none;
+}
+
+.settings-modal__summary p{
+    margin: 0;
+    font-weight: 600;
+}
+
+.settings-modal__summary-list{
+    margin: 6px 0 0;
+    padding-left: 18px;
+}
+
+.update-profile-modal__dialog{
+    width: min(620px, calc(100vw - 24px));
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.update-profile-modal__dialog::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.update-profile-modal__dialog .settings-modal__title{
+    font-size: 34px;
+    line-height: 1.15;
+}
+
+.update-profile-modal__avatar-row{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.update-profile-modal__avatar-row.is-invalid .update-profile-modal__avatar-preview{
+    border-color: rgb(249, 68, 68);
+}
+
+.update-profile-modal__avatar-action{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    gap: 8px;
+}
+
+.update-profile-modal__avatar-file{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.update-profile-modal__avatar-button{
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    min-height: 65px;
+    padding: 0;
+    gap: 8px;
+}
+
+.update-profile-modal__avatar-action-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-profile-modal__avatar-action-icon svg{
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.update-profile-modal__avatar-preview{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.update-profile-modal__form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.update-profile-modal__subtitle{
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.update-profile-modal__field{
+    position: relative;
+}
+
+.update-profile-modal__input,
+.update-profile-modal__textarea{
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+
+.update-profile-modal__input{
+    min-height: 72px;
+    padding: 28px 16px 14px;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.update-profile-modal__textarea{
+    min-height: 96px;
+    resize: none;
+    padding: 28px 16px 14px;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.update-profile-modal__label{
+    position: absolute;
+    left: 16px;
+    top: 37px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 22px;
+    line-height: 1;
+    pointer-events: none;
+    transition: top 0.22s ease, transform 0.22s ease, font-size 0.22s ease, color 0.22s ease;
+}
+
+.update-profile-modal__textarea + .update-profile-modal__label{
+    top: 37px;
+    transform: translateY(-50%);
+}
+
+.update-profile-modal__input:focus + .update-profile-modal__label,
+.update-profile-modal__input:not(:placeholder-shown) + .update-profile-modal__label,
+.update-profile-modal__textarea:focus + .update-profile-modal__label,
+.update-profile-modal__textarea:not(:placeholder-shown) + .update-profile-modal__label,
+.update-profile-modal__field.is-filled .update-profile-modal__label{
+    top: 10px;
+    transform: none;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.58);
+}
+
+.update-profile-modal__meta-grid{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.update-profile-modal__meta-grid > *{
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.update-profile-modal__meta-title{
+    margin: 0 0 6px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.update-profile-modal__gender{
+    position: relative;
+    overflow: hidden;
+    width: 280px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+}
+
+.update-profile-modal__gender::before{
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    border-radius: 999px;
+    background: rgb(255, 255, 255);
+    opacity: 0;
+    transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.update-profile-modal__gender:has(.update-profile-modal__gender-option input:checked)::before{
+    opacity: 1;
+}
+
+.update-profile-modal__gender:has(.update-profile-modal__gender-option input[value="female"]:checked)::before{
+    transform: translateX(100%);
+}
+
+.update-profile-modal__gender.is-selected::before{
+    opacity: 1;
+}
+
+.update-profile-modal__gender.is-female::before{
+    transform: translateX(100%);
+}
+
+.update-profile-modal__gender-option{
+    position: relative;
+    flex: 1 1 0;
+}
+
+.update-profile-modal__gender-option input{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.update-profile-modal__gender-option span{
+    position: relative;
+    z-index: 1;
+    min-height: 48px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1.2;
+    transition: color 0.28s ease;
+}
+
+.update-profile-modal__gender-option input:checked + span{
+    color: rgb(19, 19, 19);
+}
+
+.update-profile-modal__input--date{
+    min-height: 56px;
+    padding: 16px;
+    font-size: 18px;
+}
+
+.update-profile-modal__field-error{
+    margin: 4px 0 0;
+    color: rgb(249, 68, 68);
+    font-size: 13px;
+    line-height: 1.2;
+    min-height: 15px;
+}
+
+.update-profile-modal__field.is-invalid .update-profile-modal__input,
+.update-profile-modal__field.is-invalid .update-profile-modal__textarea{
+    border-color: rgb(249, 68, 68);
+}
+
+.update-profile-modal__field.is-invalid .update-profile-modal__gender{
+    box-shadow: inset 0 0 0 1px rgb(249, 68, 68);
+}
+
+.update-profile-modal__submit{
+    margin-top: 6px;
+    min-height: 56px;
+    width: 100%;
+    border-radius: 999px;
+    border: 0;
+    background: rgb(12, 69, 255);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+@media (max-width: 860px){
+    .settings-modal{
+        padding: 8px;
+    }
+
+    .settings-modal__dialog{
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);
+        border-radius: 18px;
+        padding: 14px;
+    }
+
+    .settings-modal__title{
+        padding-right: 40px;
+        font-size: 32px;
+    }
+
+    .update-profile-modal__avatar-row{
+        margin-top: 28px;
+        gap: 22px;
+    }
+
+    .update-profile-modal__avatar-action-icon{
+        width: 38px;
+        height: 38px;
+    }
+
+    .update-profile-modal__avatar-preview{
+        width: 84px;
+        height: 84px;
+    }
+
+    .update-profile-modal__subtitle{
+        font-size: 20px;
+    }
+
+    .update-profile-modal__input,
+    .update-profile-modal__textarea{
+        font-size: 16px;
+    }
+
+    .update-profile-modal__meta-grid{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .update-profile-modal__meta-title{
+        font-size: 18px;
+    }
+
+    .update-profile-modal__gender-option span{
+        min-height: 44px;
+        font-size: 18px;
+    }
+
+    .update-profile-modal__submit{
+        font-size: 18px;
+        min-height: 52px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .settings-modal,
+    .settings-modal__backdrop,
+    .settings-modal__dialog{
+        transition: none;
+    }
+}

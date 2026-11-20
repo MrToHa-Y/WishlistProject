@@ -1,0 +1,208 @@
+.home-layout{
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+.home-layout > .home-main{
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.home-sidebar{
+    position: relative;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+    min-width: 270px;
+    width: 270px;
+    padding-right: 0;
+}
+
+.home-sidebar__nav,
+.home-sidebar__apps{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.home-sidebar__divider{
+    height: 1px;
+    margin: 12px 0 6px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.home-sidebar__apps{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-sidebar__link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.home-sidebar__link:hover,
+.home-sidebar__link:focus-visible,
+.home-sidebar__link:active,
+.home-sidebar__link[aria-current="page"]{
+    color: rgba(255, 255, 255, 1);
+}
+
+.home-sidebar__link[aria-current="page"]:not(.home-sidebar__link--fixed-april-icon):not(.home-sidebar__link--fixed-business-icon) .home-sidebar__icon svg{
+    color: currentColor;
+}
+
+.home-sidebar__link--title{
+    font-weight: 700;
+}
+
+.home-sidebar__icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: inherit;
+}
+
+.home-sidebar__icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.home-sidebar__link:not(.home-sidebar__link--fixed-april-icon):not(.home-sidebar__link--fixed-business-icon) .home-sidebar__icon svg [fill]:not([fill="none"]){
+    fill: currentColor;
+    fill-opacity: 1;
+    transition: fill 0.2s ease;
+}
+
+.home-sidebar__link:not(.home-sidebar__link--fixed-april-icon):not(.home-sidebar__link--fixed-business-icon) .home-sidebar__icon svg [stroke]:not([stroke="none"]){
+    stroke: currentColor;
+    stroke-opacity: 1;
+    transition: stroke 0.2s ease;
+}
+
+.home-sidebar__link--fixed-april-icon .home-sidebar__icon,
+.home-sidebar__link--fixed-april-icon:hover .home-sidebar__icon,
+.home-sidebar__link--fixed-april-icon:focus-visible .home-sidebar__icon,
+.home-sidebar__link--fixed-april-icon:active .home-sidebar__icon,
+.home-sidebar__link--fixed-april-icon[aria-current="page"] .home-sidebar__icon{
+    color: rgb(161, 200, 61);
+}
+
+.home-sidebar__link--fixed-business-icon .home-sidebar__icon,
+.home-sidebar__link--fixed-business-icon:hover .home-sidebar__icon,
+.home-sidebar__link--fixed-business-icon:focus-visible .home-sidebar__icon,
+.home-sidebar__link--fixed-business-icon:active .home-sidebar__icon,
+.home-sidebar__link--fixed-business-icon[aria-current="page"] .home-sidebar__icon{
+    color: rgb(201, 247, 93);
+}
+
+.home-sidebar__link--fixed-business-icon,
+.home-sidebar__link--fixed-business-icon:hover,
+.home-sidebar__link--fixed-business-icon:focus-visible,
+.home-sidebar__link--fixed-business-icon:active,
+.home-sidebar__link--fixed-business-icon[aria-current="page"]{
+    color: rgb(201, 247, 93);
+}
+
+.home-sidebar__legal{
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.home-sidebar__legal p,
+.home-sidebar__legal a{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.home-sidebar__legal a:hover{
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.home-about{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.home-about p{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+@media (max-width: 1200px){
+    .home-layout{
+        gap: 24px;
+    }
+
+    .home-sidebar{
+        min-width: 240px;
+        width: 240px;
+    }
+}
+
+@media (max-width: 860px){
+    .home-layout{
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .home-sidebar--left{
+        display: none;
+    }
+
+    .home-sidebar--right{
+        position: static;
+        max-height: none;
+        overflow: visible;
+        top: auto;
+        padding-right: 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .home-about{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: min(100%, 340px);
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    .home-about p{
+        background: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 13px;
+        line-height: 1.32;
+    }
+}

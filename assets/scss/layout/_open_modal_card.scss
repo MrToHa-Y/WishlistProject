@@ -1,0 +1,927 @@
+.is-modal-open{
+    overflow: hidden;
+}
+
+.open-card-modal{
+    position: fixed;
+    inset: 0;
+    z-index: 140;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.26s ease;
+}
+
+.open-card-modal.is-open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.open-card-modal[hidden]{
+    display: none;
+}
+
+.open-card-modal__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.74);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.26s ease;
+}
+
+.open-card-modal.is-open .open-card-modal__backdrop{
+    opacity: 1;
+}
+
+.open-card-modal__dialog{
+    position: relative;
+    z-index: 1;
+    width: min(1450px, calc(100vw - 24px));
+    height: min(850px, calc(100vh - 24px));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgb(31, 31, 34);
+    overflow: hidden;
+    padding: 40px 44px;
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    transition: transform 0.26s ease, opacity 0.26s ease;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.open-card-modal__dialog::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.open-card-modal.is-open .open-card-modal__dialog{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.open-card-modal__close{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 24px;
+    top: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.open-card-modal__close span{
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 25px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.open-card-modal__close span:first-child{
+    transform: rotate(45deg);
+}
+
+.open-card-modal__close span:last-child{
+    transform: rotate(-45deg);
+}
+
+.open-card-modal__grid{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-card-modal__media-wrap{
+    width: 470px;
+    height: 575px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.open-card-modal__media{
+    width: 470px;
+    height: 575px;
+    object-fit: cover;
+    display: block;
+}
+
+.open-card-modal__content{
+    width: 470px;
+    height: 575px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.open-card-modal__title{
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.15;
+}
+
+.open-card-modal__description{
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.76);
+    max-height: 95px;
+    overflow: hidden;
+}
+
+.open-card-modal__description.is-expanded{
+    max-height: none;
+    overflow: visible;
+}
+
+.open-card-modal__description-toggle{
+    margin: 8px 0 0;
+    align-self: flex-start;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.open-card-modal__description-toggle[hidden]{
+    display: none;
+}
+
+.open-card-modal.is-description-expanded .open-card-modal__dialog{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.open-card-modal.is-description-expanded .open-card-modal__grid{
+    align-items: flex-start;
+    min-height: 100%;
+}
+
+.open-card-modal.is-description-expanded .open-card-modal__content{
+    height: auto;
+    min-height: 575px;
+    justify-content: flex-start;
+}
+
+.open-card-modal__buy-row{
+    margin-top: 22px;
+    min-height: 96px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+}
+
+.open-card-modal__buy-row--promo{
+    border: 1px solid rgba(201, 247, 93, 0.34);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.open-card-modal__price-wrap{
+    min-width: 0;
+}
+
+.open-card-modal__price{
+    margin: 0;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.open-card-modal__promo{
+    margin: 10px 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(201, 247, 93);
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.open-card-modal__promo[hidden]{
+    display: none;
+}
+
+.open-card-modal__promo-icon{
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-card-modal__promo-icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.open-card-modal__promo-separator{
+    width: 1px;
+    height: 14px;
+    background: rgba(201, 247, 93, 0.65);
+}
+
+.open-card-modal__promo-separator[hidden]{
+    display: none;
+}
+
+.open-card-modal__link{
+    min-height: 50px;
+    border-radius: 999px;
+    padding: 0 18px;
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.open-card-modal__link[hidden]{
+    display: none;
+}
+
+.open-card-modal__link-icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-card-modal__link-icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.open-card-modal__save-form{
+    margin-top: 30px;
+}
+
+.open-card-modal__save{
+    width: 100%;
+    min-height: 50px;
+    border-radius: 999px;
+    border: 0;
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.open-card-modal--profile .open-card-modal__save{
+    margin-top: 30px;
+    min-height: 50px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.open-card-modal__profile-actions{
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+}
+
+.open-card-modal__profile-delete-form{
+    margin: 0;
+    flex: 1 1 0;
+}
+
+.open-card-modal__profile-delete-form .open-card-modal__profile-action{
+    width: 100%;
+}
+
+.open-card-modal__profile-action{
+    flex: 1 1 0;
+    min-height: 50px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.92);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.open-card-modal__profile-action-icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.open-card-modal__profile-action-icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.open-card-modal__profile-action--delete{
+    color: rgb(243, 70, 59);
+}
+
+.open-card-modal__profile-action--delete .open-card-modal__profile-action-icon svg *{
+    fill: currentColor !important;
+    stroke: currentColor !important;
+}
+
+.open-card-modal--reserve .open-card-modal__content{
+    justify-content: flex-start;
+}
+
+.reserve-wish-modal__owner{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin: 0 0 14px;
+}
+
+.reserve-wish-modal__owner-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.reserve-wish-modal__owner-name{
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.open-card-modal__save--danger{
+    background: rgb(243, 70, 59);
+    color: rgb(255, 255, 255);
+}
+
+.open-card-modal__edit-layer{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+}
+
+.open-card-modal__edit-layer.is-open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.open-card-modal__edit-backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.74);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.open-card-modal__edit-layer.is-open .open-card-modal__edit-backdrop{
+    opacity: 1;
+}
+
+.open-card-modal__edit-dialog{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(1320px, calc(100% - 24px));
+    height: min(840px, calc(100% - 24px));
+    border-radius: 20px;
+    background: rgb(31, 31, 34);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 22px 24px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 14px)) scale(0.985);
+    transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.open-card-modal__edit-dialog{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.open-card-modal__edit-dialog::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.open-card-modal__edit-layer.is-open .open-card-modal__edit-dialog{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.open-card-modal__edit-close{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.open-card-modal__edit-close span{
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 21px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.open-card-modal__edit-close span:first-child{
+    transform: rotate(45deg);
+}
+
+.open-card-modal__edit-close span:last-child{
+    transform: rotate(-45deg);
+}
+
+.open-card-modal__edit-title{
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    line-height: 1.05;
+    text-align: center;
+}
+
+.open-card-modal__edit-form{
+    margin-top: 14px;
+    min-height: 0;
+}
+
+.open-card-modal__edit-submit{
+    margin-top: auto;
+}
+
+.open-card-modal__edit-dialog .create-wish-form__textarea{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.open-card-modal__edit-dialog .create-wish-form__textarea::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+@media (max-width: 1200px){
+    .open-card-modal__edit-dialog{
+        width: min(980px, calc(100% - 20px));
+        height: min(780px, calc(100% - 20px));
+        padding: 16px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .open-card-modal__edit-form{
+        margin-top: 20px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__grid{
+        flex-direction: column;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__media{
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__dropzone{
+        height: 220px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__fields{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1480px){
+    .open-card-modal__dialog{
+        padding: 30px 32px;
+    }
+
+    .open-card-modal__grid{
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .open-card-modal__media-wrap,
+    .open-card-modal__media{
+        width: 100%;
+        height: 100%;
+        max-height: 575px;
+        aspect-ratio: 470 / 575;
+    }
+
+    .open-card-modal__content{
+        width: 470px;
+        height: 575px;
+        min-height: 0;
+    }
+
+    .open-card-modal__title{
+        font-size: 30px;
+    }
+
+    .open-card-modal__price{
+        font-size: 30px;
+    }
+
+    .open-card-modal__link{
+        min-height: 50px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .open-card-modal__save{
+        min-height: 50px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .open-card-modal__edit-title{
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 980px){
+    .open-card-modal{
+        padding: 8px;
+    }
+
+    .open-card-modal__dialog{
+        width: calc(100vw - 16px);
+        height: calc(100vh - 16px);
+        border-radius: 16px;
+        padding: 14px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .open-card-modal__close{
+        width: 44px;
+        height: 44px;
+        right: 12px;
+        top: 12px;
+    }
+
+    .open-card-modal__close span{
+        left: 12px;
+        right: 12px;
+        top: 21px;
+    }
+
+    .open-card-modal__grid{
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+        align-items: stretch;
+    }
+
+    .open-card-modal__media-wrap,
+    .open-card-modal__media{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+        aspect-ratio: 470 / 575;
+        margin: 0 auto;
+    }
+
+    .open-card-modal__content{
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
+        height: auto;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .open-card-modal.is-description-expanded .open-card-modal__content{
+        min-height: 0;
+    }
+
+    .open-card-modal__title{
+        font-size: 24px;
+        padding-right: 42px;
+        word-break: break-word;
+    }
+
+    .reserve-wish-modal__owner{
+        margin-bottom: 8px;
+    }
+
+    .reserve-wish-modal__owner-avatar{
+        width: 34px;
+        height: 34px;
+    }
+
+    .reserve-wish-modal__owner-name{
+        font-size: 18px;
+    }
+
+    .open-card-modal__description{
+        margin-top: 0;
+        font-size: 14px;
+        max-height: 95px;
+    }
+
+    .open-card-modal__buy-row{
+        margin-top: 0;
+        min-height: 72px;
+        border-radius: 14px;
+        padding: 10px 12px;
+        width: 100%;
+    }
+
+    .open-card-modal__price{
+        font-size: 24px;
+    }
+
+    .open-card-modal__promo{
+        margin-top: 6px;
+        font-size: 12px;
+    }
+
+    .open-card-modal__link{
+        min-height: 44px;
+        font-size: 15px;
+        padding: 0 14px;
+        max-width: 100%;
+    }
+
+    .open-card-modal__link-icon{
+        width: 18px;
+        height: 18px;
+    }
+
+    .open-card-modal__save-form{
+        margin-top: 0;
+    }
+
+    .open-card-modal__save{
+        min-height: 44px;
+        font-size: 15px;
+    }
+
+    .reserve-wish-modal__note{
+        margin-top: 10px;
+        font-size: 11px;
+    }
+
+    .open-card-modal__profile-actions{
+        margin-top: 10px;
+        gap: 8px;
+        flex-direction: row;
+    }
+
+    .open-card-modal__profile-action{
+        min-height: 44px;
+        padding: 0 12px;
+        gap: 6px;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    .open-card-modal__profile-action-icon{
+        width: 24px;
+        height: 24px;
+    }
+
+    .open-card-modal--profile .open-card-modal__save{
+        margin-top: 0;
+        min-height: 44px;
+        font-size: 15px;
+    }
+
+    .open-card-modal__edit-dialog{
+        width: calc(100% - 16px);
+        height: calc(100% - 16px);
+        border-radius: 16px;
+        padding: 14px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .open-card-modal__edit-title{
+        font-size: 22px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 560px){
+    .open-card-modal__dialog{
+        padding: 12px;
+    }
+
+    .open-card-modal__close{
+        width: 40px;
+        height: 40px;
+        right: 10px;
+        top: 10px;
+    }
+
+    .open-card-modal__close span{
+        left: 11px;
+        right: 11px;
+        top: 19px;
+    }
+
+    .open-card-modal__grid{
+        gap: 10px;
+    }
+
+    .open-card-modal__media-wrap,
+    .open-card-modal__media{
+        border-radius: 14px;
+    }
+
+    .open-card-modal__title{
+        font-size: 22px;
+        line-height: 1.12;
+        padding-right: 40px;
+    }
+
+    .reserve-wish-modal__owner-avatar{
+        width: 32px;
+        height: 32px;
+    }
+
+    .reserve-wish-modal__owner-name{
+        font-size: 17px;
+    }
+
+    .open-card-modal__description{
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .open-card-modal__buy-row{
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .open-card-modal__price{
+        font-size: 20px;
+    }
+
+    .open-card-modal__link{
+        min-height: 42px;
+        font-size: 14px;
+        padding: 0 12px;
+    }
+
+    .open-card-modal__save{
+        min-height: 42px;
+        font-size: 14px;
+    }
+
+    .open-card-modal__profile-actions{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .open-card-modal__profile-action{
+        width: 100%;
+        min-height: 42px;
+        font-size: 14px;
+    }
+
+    .open-card-modal__edit-layer{
+        position: fixed;
+        inset: 0;
+        z-index: 180;
+    }
+
+    .open-card-modal__edit-dialog{
+        width: 360px;
+        height: 900px;
+        top: 450px;
+        border-radius: 18px;
+        padding: 14px 12px 16px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .open-card-modal__edit-title{
+        font-size: 22px;
+        line-height: 1.1;
+        padding-right: 36px;
+    }
+
+    .open-card-modal__edit-form{
+        margin-top: 16px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__grid{
+        gap: 16px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__media{
+        width: 100%;
+        min-height: 0;
+        max-height: none;
+        margin-bottom: 12px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__dropzone{
+        height: 380px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__preview--filled{
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__preview--filled img{
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__fields{
+        width: 100%;
+        max-width: 100%;
+        gap: 12px;
+    }
+
+    .open-card-modal__edit-dialog .create-wish-form__input{
+        padding: 24px 16px 12px;
+    }
+
+.open-card-modal__edit-dialog .create-wish-form__textarea{
+    padding: 26px 16px 14px;
+}
+
+    .open-card-modal__edit-dialog .create-wish-form__input:focus + .create-wish-form__label,
+    .open-card-modal__edit-dialog .create-wish-form__input:not(:placeholder-shown) + .create-wish-form__label,
+    .open-card-modal__edit-dialog .create-wish-form__textarea:focus + .create-wish-form__label,
+    .open-card-modal__edit-dialog .create-wish-form__textarea:not(:placeholder-shown) + .create-wish-form__label{
+        top: 8px;
+    }
+
+    .open-card-modal__edit-dialog .open-card-modal__edit-submit{
+        margin-top: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .open-card-modal,
+    .open-card-modal__backdrop,
+    .open-card-modal__dialog,
+    .open-card-modal__edit-layer,
+    .open-card-modal__edit-backdrop,
+    .open-card-modal__edit-dialog{
+        transition: none;
+    }
+}

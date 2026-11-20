@@ -1,0 +1,200 @@
+.error-page{
+    --error-accent-blue: rgb(12, 69, 255);
+    --error-text-main: rgb(255, 255, 255);
+
+    background: rgb(0, 0, 0);
+}
+
+.error-page__content{
+    min-height: calc(100vh - var(--home-header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 14px 34px;
+}
+
+.error-page__main{
+    width: min(100%, 1080px);
+    padding: clamp(20px, 4vw, 44px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.error-page__code{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 22px);
+    line-height: 1;
+}
+
+.error-page__digit{
+    color: rgb(255, 255, 255);
+    font-size: clamp(100px, 22vw, 320px);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+}
+
+.error-page__logo-zero{
+    position: relative;
+    width: clamp(96px, 18vw, 260px);
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page__logo-bg,
+.error-page__logo-name,
+.error-page__logo-heart{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.error-page__logo-name{
+    animation-name: scroll;
+    animation-duration: 24s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.error-page__logo-heart{
+    animation-name: scale;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.error-page__title{
+    margin: 0;
+    color: var(--error-text-main);
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.error-page__subtitle{
+    margin: 0;
+    color: var(--error-text-main);
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.error-page__subtitle-logo{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.error-page__back-button{
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    border-radius: 999px;
+    padding: 0 34px;
+    text-decoration: none;
+    background: var(--error-accent-blue);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.error-page__back-button:hover{
+    filter: brightness(1.08);
+}
+
+.error-page__back-button:active{
+    transform: scale(0.98);
+}
+
+@keyframes scroll{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(0.9);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 860px){
+    .error-page__content{
+        padding-top: 14px;
+        min-height: calc(100vh - 72px - 96px);
+    }
+
+    .error-page__main{
+        width: 100%;
+        gap: 14px;
+    }
+
+    .error-page__code{
+        gap: 8px;
+    }
+
+    .error-page__title,
+    .error-page__subtitle{
+        font-size: 32px;
+    }
+
+    .error-page__back-button{
+        min-height: 48px;
+        width: min(100%, 520px);
+    }
+}
+
+@media (max-width: 480px){
+    .error-page__main{
+        padding: 18px 14px 20px;
+    }
+
+    .error-page__digit{
+        font-size: clamp(84px, 28vw, 132px);
+    }
+
+    .error-page__logo-zero{
+        width: clamp(84px, 28vw, 126px);
+    }
+
+    .error-page__title,
+    .error-page__subtitle{
+        font-size: 24px;
+    }
+
+    .error-page__subtitle-logo{
+        width: 28px;
+        height: 28px;
+    }
+}

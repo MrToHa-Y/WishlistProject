@@ -1,0 +1,374 @@
+.settings-content{
+    padding-top: 26px;
+}
+
+.settings-layout{
+    align-items: start;
+}
+
+.settings-main{
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.settings-section{
+    min-width: 0;
+}
+
+.settings-section__title{
+    margin: 0 0 12px;
+    color: var(--settings-strong-text);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.settings-card{
+    border-radius: 24px;
+    border: 1px solid var(--settings-card-border);
+    background: var(--settings-card-bg);
+    padding: 20px;
+}
+
+.settings-card--profile{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    min-width: 0;
+}
+
+.settings-card__avatar{
+    width: 100px;
+    height: 100px;
+    flex: 0 0 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.settings-card__profile-info{
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.settings-card__name{
+    margin: 0;
+    color: var(--settings-strong-text);
+    font-size: 24px;
+    line-height: 1.15;
+}
+
+.settings-card__description{
+    margin: 6px 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 18px;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.settings-card__meta{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: var(--settings-muted-text);
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.settings-card__meta span{
+    position: relative;
+}
+
+.settings-card__meta span:not(:last-child)::after{
+    content: "";
+    margin-left: 10px;
+    width: 1px;
+    height: 12px;
+    display: inline-flex;
+    vertical-align: middle;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.settings-card__edit{
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    flex-shrink: 0;
+    margin-left: auto;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-card__edit svg{
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.settings-card--management,
+.settings-card--actions{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings-management-row{
+    min-height: 66px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.settings-management-row__icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.88);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-management-row__icon svg{
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.settings-management-row__icon--email{
+    width: 50px;
+    height: 50px;
+}
+
+.settings-management-row__icon--email svg{
+    width: 30px;
+    height: 30px;
+}
+
+.settings-management-row__icon--password{
+    width: 50px;
+    height: 50px;
+}
+
+.settings-management-row__icon--password svg{
+    width: 30px;
+    height: 30px;
+}
+
+.settings-management-row__value{
+    flex: 1 1 auto;
+    color: var(--settings-strong-text);
+    font-size: 16px;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.settings-management-row__action{
+    min-width: 106px;
+    min-height: 44px;
+    border-radius: 999px;
+    border: 0;
+    padding: 0 18px;
+    background: rgb(255, 255, 255);
+    color: rgb(13, 13, 13);
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.settings-management-row__action--ghost{
+    min-width: auto;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.settings-signout-form{
+    margin: 0;
+}
+
+.settings-signout{
+    width: 100%;
+    min-height: 66px;
+    border-radius: 14px;
+    border: 0;
+    background: transparent;
+    color: var(--settings-danger);
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.settings-signout__icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-signout__icon svg{
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.settings-delete-account{
+    margin: 12px auto 0;
+    min-height: 56px;
+    min-width: 300px;
+    max-width: 100%;
+    border-radius: 999px;
+    border: 0;
+    padding: 0 24px;
+    background: var(--settings-danger);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-inline: auto;
+}
+
+.settings-delete-account__icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    flex-shrink: 0;
+}
+
+.settings-delete-account__icon svg{
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.settings-delete-account__icon svg *{
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+@media (max-width: 1200px){
+    .settings-card--profile{
+        gap: 14px;
+    }
+
+    .settings-card__avatar{
+        width: 86px;
+        height: 86px;
+    }
+
+    .settings-card__name{
+        font-size: 22px;
+    }
+
+    .settings-card__description{
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 860px){
+    .settings-content{
+        padding-top: 12px;
+    }
+
+    .settings-main{
+        gap: 22px;
+    }
+
+    .settings-section__title{
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 640px){
+    .settings-card{
+        border-radius: 18px;
+        padding: 14px;
+        gap: 30px;
+    }
+
+    .settings-card--profile{
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .settings-card__avatar{
+        width: 78px;
+        height: 78px;
+        flex-basis: 78px;
+    }
+
+    .settings-card__edit{
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+        align-self: flex-start;
+        margin-top: 0;
+    }
+
+    .settings-card__edit svg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .settings-card__name{
+        font-size: 24px;
+        line-height: 1.05;
+    }
+
+    .settings-card__description{
+        font-size: 15px;
+        margin-top: 4px;
+    }
+
+    .settings-card__meta{
+        margin-top: 8px;
+        gap: 8px;
+    }
+
+    .settings-management-row{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .settings-management-row__action{
+        width: 100%;
+    }
+
+    .settings-signout{
+        min-height: 58px;
+        font-size: 16px;
+    }
+
+    .settings-delete-account{
+        min-height: 48px;
+        font-size: 18px;
+        min-width: 260px;
+        margin-bottom: 40px;
+    }
+}

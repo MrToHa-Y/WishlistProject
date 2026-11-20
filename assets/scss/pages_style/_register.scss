@@ -1,0 +1,486 @@
+@font-face{
+    font-family: "SF Pro Rounded Medium";
+    src: url("/assets/fonts/SF-Pro-Rounded-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body.register-page{
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.register-page{
+    background: var(--register-page-bg);
+    color: var(--register-text-color);
+    font-family: var(--register-font-family);
+}
+
+.register-page *{
+    font-family: var(--register-font-family);
+}
+
+.register-page__overlay{
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.register-page__toast-area{
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92vw, 460px);
+    z-index: 120;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.register-page__toast-area .flash-stack,
+.register-page__toast-area .register-form__summary--toast{
+    pointer-events: auto;
+    animation: register-toast-drop 0.22s ease;
+}
+
+.register-page .flash-stack{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+
+.register-page .flash-message,
+.register-form__summary--toast{
+    border-radius: 16px;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.register-page .flash-message{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 14px;
+    color: rgb(255, 255, 255);
+}
+
+.register-page .flash-message--success{
+    background: var(--register-success-color);
+}
+
+.register-page .flash-message--error{
+    background: var(--register-error-color);
+}
+
+.register-page .flash-message--warning{
+    background: var(--register-warning-color);
+}
+
+.register-page .flash-message--info{
+    background: var(--register-info-color);
+}
+
+.register-page .flash-message__text{
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.register-page .flash-message__close{
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0;
+}
+
+.register-page__card{
+    position: relative;
+    width: var(--register-card-width);
+    height: var(--register-card-height);
+    box-sizing: border-box;
+    border-radius: var(--register-card-radius);
+    background: var(--register-card-bg);
+    padding: var(--register-card-padding-y) var(--register-card-padding-x);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.5);
+}
+
+.register-page__close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--register-title-color);
+    text-decoration: none;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.auth-card__title{
+    margin: 0;
+    text-align: center;
+    color: var(--register-title-color);
+    font-size: var(--register-title-size);
+    line-height: 1.08;
+    font-weight: 600;
+}
+
+.register-form__summary{
+    margin: 0;
+    padding: 11px 14px;
+    background: var(--register-error-color);
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.register-form__summary p{
+    margin: 0;
+    font-weight: 600;
+}
+
+.register-form__summary-list{
+    margin: 5px 0 0;
+    padding-left: 16px;
+}
+
+.register-form__summary--hidden{
+    display: none;
+}
+
+.register-form{
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    overflow: hidden;
+    padding: 12px;
+    border-radius: 20px;
+    background: var(--register-zone-bg);
+}
+
+.register-form__field{
+    position: relative;
+}
+
+.register-form__input{
+    width: 100%;
+    height: 56px;
+    border-radius: var(--register-field-radius);
+    border: 1px solid transparent;
+    background: var(--register-field-bg);
+    color: rgb(255, 255, 255);
+    outline: none;
+    box-sizing: border-box;
+    padding: 22px 16px 7px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.register-form__label{
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--register-label-color);
+    font-size: var(--register-label-size);
+    line-height: 1;
+    pointer-events: none;
+    transition: top 0.15s ease, transform 0.15s ease, font-size 0.15s ease;
+}
+
+.register-form__input:focus + .register-form__label,
+.register-form__input:not(:placeholder-shown) + .register-form__label{
+    top: 9px;
+    transform: translateY(0);
+    font-size: var(--register-label-active-size);
+}
+
+.register-form__input:focus{
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.register-form__field.is-invalid .register-form__input{
+    border-color: var(--register-error-color);
+}
+
+.register-form__field-error{
+    display: none;
+}
+
+.register-form__submit{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: var(--register-pill-radius);
+    background: var(--register-submit-bg);
+    color: var(--register-submit-text);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register-form__agreement{
+    margin: 0;
+    text-align: center;
+    font-size: var(--register-policy-size);
+    line-height: 1.3;
+    color: var(--register-text-color);
+}
+
+.register-form__agreement a{
+    color: rgb(255, 255, 255);
+}
+
+.register-form__footer{
+    border-top: 1px solid var(--register-divider-color);
+    padding-top: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.register-form__footer-text{
+    margin: 0;
+    font-size: 13px;
+}
+
+.register-form__login-link{
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: var(--register-pill-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.is-hidden{
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+@keyframes register-toast-drop{
+    from{
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-switch{
+    position: relative;
+    display: inline-flex;
+}
+
+.auth-switch__button{
+    min-height: 44px;
+    padding: 0 18px;
+    border: none;
+    border-radius: var(--register-pill-radius);
+    color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.auth-switch__button--register{
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+}
+
+.auth-switch__modal{
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 280px;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgb(31, 31, 31);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    z-index: 20;
+}
+
+.auth-switch__close{
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.auth-switch__title{
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.auth-switch__details{
+    margin: 0;
+}
+
+.auth-switch__row{
+    margin-bottom: 10px;
+}
+
+.auth-switch__row dt{
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-switch__row dd{
+    margin: 4px 0 0;
+}
+
+.auth-switch__logout{
+    width: 100%;
+    min-height: 38px;
+    border: 0;
+    border-radius: var(--register-pill-radius);
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    cursor: pointer;
+}
+
+@media (max-width: 560px), (max-height: 760px){
+    .register-page__overlay{
+        padding: 8px;
+    }
+
+    .register-page__card{
+        width: 370px;
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .auth-card__title{
+        font-size: 30px;
+    }
+
+    .register-form{
+        padding: 10px 8px;
+    }
+
+    .register-form__input{
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .register-form__label{
+        font-size: 18px;
+    }
+
+    .register-form__input:focus + .register-form__label,
+    .register-form__input:not(:placeholder-shown) + .register-form__label{
+        font-size: 13px;
+    }
+
+    .register-page__close{
+        top: 12px;
+    }
+}
+
+@media (max-width: 420px), (max-height: 680px){
+    .register-page__toast-area{
+        width: calc(100vw - 16px);
+    }
+
+    .register-page__card{
+        padding: 12px;
+        border-radius: 18px;
+        width: 300px;
+        height: 600px;
+    }
+
+    .auth-card__title{
+        font-size: 27px;
+    }
+
+    .register-form{
+        gap: 5px;
+        padding: 8px 6px;
+        border-radius: 14px;
+    }
+
+    .register-form__input{
+        height: 48px;
+        padding: 18px 12px 6px;
+        font-size: 14px;
+    }
+
+    .register-form__label{
+        left: 12px;
+        font-size: 16px;
+    }
+
+    .register-form__input:focus + .register-form__label,
+    .register-form__input:not(:placeholder-shown) + .register-form__label{
+        top: 7px;
+        font-size: 12px;
+    }
+
+    .register-form__submit{
+        height: 44px;
+    }
+
+    .register-form__footer{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+    }
+
+    .register-form__footer-text{
+        text-align: center;
+    }
+
+    .register-form__login-link{
+        width: 100%;
+    }
+
+    .register-page__close{
+        top: 5px;
+    }
+}

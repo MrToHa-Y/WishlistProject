@@ -1,0 +1,347 @@
+.profile-content{
+    padding-top: 26px;
+}
+
+.profile-layout{
+    align-items: start;
+}
+
+.profile-main{
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.profile-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.profile-hero__avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.profile-hero__username{
+    margin: 0;
+    font-size: 70px;
+    line-height: 1.02;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+.profile-hero__description{
+    margin: 0;
+    color: var(--profile-muted-text);
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.profile-hero__birthday-row{
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.profile-hero__birthday-main{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.profile-hero__birthday-label,
+.profile-hero__birthday-date{
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.profile-hero__birthday-icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-hero__birthday-icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.profile-hero__birthday-icon svg [fill]:not([fill="none"]){
+    fill: currentColor;
+}
+
+.profile-hero__birthday-icon svg [stroke]:not([stroke="none"]){
+    stroke: currentColor;
+}
+
+.profile-hero__birthday-countdown{
+    color: rgb(190, 247, 86);
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.profile-hero__create{
+    margin-top: 6px;
+    min-height: 62px;
+    border: 0;
+    border-radius: 999px;
+    padding: 0 30px;
+    background: var(--profile-accent-blue);
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile-hero__create:hover{
+    filter: brightness(1.08);
+}
+
+.profile-hero__create-icon{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    color: rgb(255, 255, 255);
+}
+
+.profile-hero__create-icon svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.profile-wishes{
+    min-width: 0;
+}
+
+.profile-wishes__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.profile-wishes__title{
+    margin: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    color: rgb(255, 255, 255);
+    font-size: 34px;
+    line-height: 1.08;
+}
+
+.profile-wishes__count{
+    color: rgba(255, 255, 255, 0.56);
+}
+
+.profile-wishes__grid.wish-catalog__grid{
+    justify-content: flex-start;
+    width: 900px;
+    gap: 30px 20px;
+}
+
+.profile-mobile-shortcuts{
+    display: none;
+}
+
+@media (max-width: 1200px){
+    .profile-hero__username{
+        font-size: 56px;
+    }
+
+    .profile-hero__description{
+        font-size: 18px;
+    }
+
+    .profile-hero__create{
+        min-height: 56px;
+        font-size: 20px;
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 980px){
+    .profile-main{
+        gap: 36px;
+    }
+
+    .profile-hero__avatar{
+        width: 168px;
+        height: 168px;
+    }
+
+    .profile-hero__username{
+        font-size: 46px;
+    }
+
+    .profile-wishes__title{
+        font-size: 28px;
+    }
+
+    .profile-wishes__grid.wish-catalog__grid{
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .profile-wishes__grid.wish-catalog__grid > *{
+        flex-basis: 235px;
+    }
+}
+
+@media (max-width: 860px){
+    .profile-content{
+        padding-top: 12px;
+    }
+
+    .profile-main{
+        gap: 30px;
+    }
+
+    .profile-hero__avatar{
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-hero__username{
+        font-size: 38px;
+    }
+
+    .profile-hero__description{
+        font-size: 17px;
+    }
+
+    .profile-hero__birthday-row{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .profile-hero__birthday-countdown{
+        border-left: 0;
+        padding-left: 0;
+    }
+
+    .profile-hero__create{
+        min-height: 48px;
+        font-size: 20px;
+    }
+
+    .profile-mobile-shortcuts{
+        display: block;
+        width: 100%;
+    }
+
+    .profile-mobile-shortcuts__row{
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: min(100%, calc(100vw - 28px));
+        max-width: calc(100vw - 28px);
+        min-width: 0;
+        margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-gutter: stable;
+        padding: 0 0 8px;
+    }
+
+    .profile-mobile-shortcuts__link{
+        width: 185px;
+        flex: 0 0 185px;
+        height: 50px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.74);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 12px;
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 500;
+        scroll-snap-align: start;
+    }
+
+    .profile-mobile-shortcuts__link--active,
+    .profile-mobile-shortcuts__link:hover,
+    .profile-mobile-shortcuts__link:focus-visible{
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .profile-mobile-shortcuts__icon{
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+    }
+
+    .profile-mobile-shortcuts__icon svg{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .profile-mobile-shortcuts__icon svg [fill]:not([fill="none"]){
+        fill: currentColor;
+        fill-opacity: 1;
+    }
+
+    .profile-mobile-shortcuts__icon svg [stroke]:not([stroke="none"]){
+        stroke: currentColor;
+        stroke-opacity: 1;
+    }
+}
+
+@media (max-width: 560px){
+    .profile-hero__username{
+        font-size: 34px;
+    }
+
+    .profile-wishes__title{
+        font-size: 24px;
+        gap: 10px;
+    }
+
+    .profile-wishes__grid.wish-catalog__grid{
+        justify-content: center;
+        width: 100%;
+    }
+
+    .profile-wishes__grid.wish-catalog__grid > *{
+        flex: 0 1 100%;
+        max-width: 235px;
+    }
+}
